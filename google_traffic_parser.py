@@ -74,13 +74,13 @@ routenurls = [('http://goo.gl/maps/v4oMp','Route 1'),
 
 d = datetime.now()
 filename = d.strftime('%Y-%m-%d_%H%M%S')
-ofile  = open('data/'+filename+'.csv', "wb")
+ofile  = open(filename+'.csv', "wb")
 
 while True:
     try:
         for route in routenurls:
             url = route[0]
-            ofile  = open('data/'+filename+'.csv', "a")
+            ofile  = open(filename+'.csv', "a")
             routenwerte = routenlaenge(url)
             wert = (route[1],routenwerte[0],routenwerte[1])
             writer = csv.writer(ofile, delimiter=';', quotechar='"', quoting=csv.QUOTE_NONNUMERIC, lineterminator = '\n')
